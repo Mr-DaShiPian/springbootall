@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Title</title>
-    <script th:src="@{js/jquery-3.4.1.js}"></script>
+    <script th:src="@{/js/jquery-3.4.1.js}"></script>
     <script>
         $(function (){
             $(".delBtn").click(function () {
                 var uid = $(this).attr("data");
                 $.post("deleteUser",{uid:uid},function (data) {
                     if (data=="success"){
-                        $("#tr"+uid).remove("500");
+                        $("#tr"+uid).remove();
                     }else {
                         alert("失败");
                     }

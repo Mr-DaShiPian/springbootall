@@ -74,34 +74,12 @@ public class UserController {
         }
         return "false";
     }
-    @RequestMapping("editUser")
+    @RequestMapping("edit")
     public String editUser(int uid,Model model){
         User user = userService.getUserByUid(uid);
         model.addAttribute("user",user);
         return "update";
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     @RequestMapping("updateUser")
     public String updateUser(User user){
@@ -115,7 +93,5 @@ public class UserController {
     public String unauth(){
         return "unauth";
     }
-
-
 
 }
