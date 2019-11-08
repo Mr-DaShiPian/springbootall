@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <script th:src="@{js/jquery-3.4.1.js}"></script>
+    <script>
+        $(function (){
+            $(".delBtn").click(function () {
+                var uid = $(this).attr("data");
+                $.post("deleteUser",{uid:uid},function (data) {
+                    if (data=="success"){
+                        $("#tr"+uid).remove("500");
+                    }else {
+                        alert("失败");
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+<a href="addUser">增加用户</a>
+<table>
+    <tr>
+        <th>序号</th>
+        <th>用户名</th>
+        <th>密码</th>
+        <th>角色</th>
+        <th>操作</th>
+    </tr>
+    <tr th:id="tr+${user.uid}" th:each="user,var:${pageInfo.list}">
+        <td th:text="${var.count}"></td>
+        <td th:text="${user.username}"></td>
+        <td th:text="${user.password}"></td>
+<!--        <td th:text="${user.role}"></td>-->
+        <td>
+            <a th:href="@{edit(uid=${user.uid})}" th:text="修改"></a>
+            <a href="javascript:void(0)" th:data="${user.uid}" th:text="删除" class="delBtn"></a>
+        </td>
+
+    </tr>
+</table>
+
+
+<a th:href="@{index(pageNum=1)}" th:text="首页"></a>
+<span th:if="${!pageInfo.hasPreviousPage}">上一页</span>
+<a th:if="${pageInfo.hasPreviousPage}" th:href="@{index(pageNum=${pageInfo.prePage})}" th:text="上一页"></a>
+<!--显示所有页码，navigatepageNums表示所有页码的数组集合-->
+<span th:each="i: ${pageInfo.navigatepageNums}">
+        <a th:href="@{index(pageNum=${i})}" th:text="${i}"></a>
+</span>
+<a th:if="${pageInfo.hasNextPage}" th:href="@{index(pageNum=${pageInfo.nextPage})}" th:text="下一页"></a>
+<span th:if="${!pageInfo.hasNextPage}">下一页</span>
+<a th:href="@{index(pageNum=${pageInfo.lastPage})}" th:text="尾页"></a>
+</body>
+</html>

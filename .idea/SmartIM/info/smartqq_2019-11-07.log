@@ -1,0 +1,198 @@
+2019-11-07 12:01:13.790 [Thread-2] INFO  io.github.biezhi.wechat.api.WechatClient -
+				[*] 正在获取 uuid ... 
+2019-11-07 12:01:14.599 [Thread-2] INFO  io.github.biezhi.wechat.api.WechatClient -
+				[*] 正在获取二维码 ... 成功
+
+2019-11-07 12:01:16.421 [Thread-2] INFO  io.github.biezhi.wechat.api.WechatClient -
+				[*] 请使用微信扫描二维码以登录 ... 
+
+2019-11-07 12:01:16.914 [Thread-3] INFO  io.github.biezhi.wechat.api.WechatClient -
+				[*] 正在获取 uuid ... 
+2019-11-07 12:01:17.044 [Thread-3] INFO  io.github.biezhi.wechat.api.WechatClient -
+				[*] 正在获取二维码 ... 成功
+
+2019-11-07 12:01:23.659 [Thread-4] INFO  io.github.biezhi.wechat.api.WechatClient -
+				[*] 正在获取 uuid ... 
+2019-11-07 12:01:24.479 [Thread-4] INFO  io.github.biezhi.wechat.api.WechatClient -
+				[*] 正在获取二维码 ... 成功
+
+2019-11-07 12:01:26.124 [Thread-4] INFO  io.github.biezhi.wechat.api.WechatClient -
+				[*] 请使用微信扫描二维码以登录 ... 
+
+2019-11-07 12:01:32.870 [Thread-4] INFO  io.github.biezhi.wechat.api.WechatClient -
+				[*] 请在手机上点击确认以登录 ... 
+
+2019-11-07 12:01:36.918 [Thread-4] INFO  io.github.biezhi.wechat.api.WechatApi -
+				[*] 设置cookie []
+2019-11-07 12:01:41.931 [Thread-2] WARN  io.github.biezhi.wechat.api.WechatApi -
+				[登陆超时] 
+
+2019-11-07 12:01:42.941 [Thread-2] INFO  io.github.biezhi.wechat.api.WechatClient -
+				[*] 请使用微信扫描二维码以登录 ... 
+
+2019-11-07 12:01:43.112 [Thread-2] INFO  io.github.biezhi.wechat.api.WechatClient -
+				[*] 请在手机上点击确认以登录 ... 
+
+2019-11-07 12:01:43.542 [Thread-2] INFO  io.github.biezhi.wechat.api.WechatApi -
+				[*] 设置cookie []
+2019-11-07 12:01:53.975 [Thread-7] INFO  io.github.biezhi.wechat.api.WechatClient -
+				[*] 正在获取 uuid ... 
+2019-11-07 12:01:54.095 [Thread-7] INFO  io.github.biezhi.wechat.api.WechatClient -
+				[*] 正在获取二维码 ... 成功
+
+2019-11-07 12:01:55.701 [Thread-7] INFO  io.github.biezhi.wechat.api.WechatClient -
+				[*] 请使用微信扫描二维码以登录 ... 
+
+2019-11-07 12:02:20.879 [Thread-7] WARN  io.github.biezhi.wechat.api.WechatApi -
+				[登陆超时] 
+
+2019-11-07 12:02:21.889 [Thread-7] INFO  io.github.biezhi.wechat.api.WechatClient -
+				[*] 请使用微信扫描二维码以登录 ... 
+
+2019-11-07 12:02:27.128 [Thread-3] ERROR io.github.biezhi.wechat.api.WechatApi -
+				[*] 生成二维码失败
+java.net.SocketTimeoutException: timeout
+	at okio.Okio$4.newTimeoutException(Okio.java:230)
+	at okio.AsyncTimeout.exit(AsyncTimeout.java:285)
+	at okio.AsyncTimeout$2.read(AsyncTimeout.java:241)
+	at okio.RealBufferedSource.read(RealBufferedSource.java:46)
+	at okhttp3.internal.http1.Http1Codec$FixedLengthSource.read(Http1Codec.java:384)
+	at okio.Buffer.writeAll(Buffer.java:1005)
+	at okio.RealBufferedSource.readByteArray(RealBufferedSource.java:107)
+	at okhttp3.ResponseBody.bytes(ResponseBody.java:136)
+	at io.github.biezhi.wechat.api.WechatApi.genqrcode(WechatApi.java:171)
+	at io.github.biezhi.wechat.api.WechatClient.login(WechatClient.java:110)
+	at cn.ieclipse.smartim.actions.LoginAction$1.run(LoginAction.java:31)
+Caused by: javax.net.ssl.SSLException: Socket closed
+	at java.base/sun.security.ssl.Alert.createSSLException(Alert.java:127)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:320)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:263)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:258)
+	at java.base/sun.security.ssl.SSLTransport.decode(SSLTransport.java:137)
+	at java.base/sun.security.ssl.SSLSocketImpl.decode(SSLSocketImpl.java:1155)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1125)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:823)
+	at okio.Okio$2.read(Okio.java:139)
+	at okio.AsyncTimeout$2.read(AsyncTimeout.java:237)
+	... 8 common frames omitted
+Caused by: java.net.SocketException: Socket closed
+	at java.base/java.net.SocketInputStream.socketRead0(Native Method)
+	at java.base/java.net.SocketInputStream.socketRead(SocketInputStream.java:115)
+	at java.base/java.net.SocketInputStream.read(SocketInputStream.java:168)
+	at java.base/java.net.SocketInputStream.read(SocketInputStream.java:140)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:448)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.decodeInputRecord(SSLSocketInputRecord.java:237)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.decode(SSLSocketInputRecord.java:190)
+	at java.base/sun.security.ssl.SSLTransport.decode(SSLTransport.java:108)
+	... 13 common frames omitted
+2019-11-07 12:02:28.129 [Thread-3] INFO  io.github.biezhi.wechat.api.WechatClient -
+				[*] 请使用微信扫描二维码以登录 ... 
+
+2019-11-07 12:02:47.076 [Thread-7] WARN  io.github.biezhi.wechat.api.WechatApi -
+				[登陆超时] 
+
+2019-11-07 12:02:48.085 [Thread-7] INFO  io.github.biezhi.wechat.api.WechatClient -
+				[*] 请使用微信扫描二维码以登录 ... 
+
+2019-11-07 12:02:53.769 [Thread-3] WARN  io.github.biezhi.wechat.api.WechatApi -
+				[登陆超时] 
+
+2019-11-07 12:02:54.778 [Thread-3] INFO  io.github.biezhi.wechat.api.WechatClient -
+				[*] 请使用微信扫描二维码以登录 ... 
+
+2019-11-07 12:03:13.268 [Thread-7] WARN  io.github.biezhi.wechat.api.WechatApi -
+				[登陆超时] 
+
+2019-11-07 12:03:14.277 [Thread-7] INFO  io.github.biezhi.wechat.api.WechatClient -
+				[*] 请使用微信扫描二维码以登录 ... 
+
+2019-11-07 12:03:19.968 [Thread-3] WARN  io.github.biezhi.wechat.api.WechatApi -
+				[登陆超时] 
+
+2019-11-07 12:03:20.977 [Thread-3] INFO  io.github.biezhi.wechat.api.WechatClient -
+				[*] 请使用微信扫描二维码以登录 ... 
+
+2019-11-07 12:03:39.470 [Thread-7] WARN  io.github.biezhi.wechat.api.WechatApi -
+				[登陆超时] 
+
+2019-11-07 12:03:40.479 [Thread-7] INFO  io.github.biezhi.wechat.api.WechatClient -
+				[*] 请使用微信扫描二维码以登录 ... 
+
+2019-11-07 12:03:46.164 [Thread-3] WARN  io.github.biezhi.wechat.api.WechatApi -
+				[登陆超时] 
+
+2019-11-07 12:03:47.174 [Thread-3] INFO  io.github.biezhi.wechat.api.WechatClient -
+				[*] 请使用微信扫描二维码以登录 ... 
+
+2019-11-07 12:04:05.651 [Thread-7] WARN  io.github.biezhi.wechat.api.WechatApi -
+				[登陆超时] 
+
+2019-11-07 12:04:06.660 [Thread-7] INFO  io.github.biezhi.wechat.api.WechatClient -
+				[*] 请使用微信扫描二维码以登录 ... 
+
+2019-11-07 12:04:12.359 [Thread-3] WARN  io.github.biezhi.wechat.api.WechatApi -
+				[登陆超时] 
+
+2019-11-07 12:04:13.369 [Thread-3] INFO  io.github.biezhi.wechat.api.WechatClient -
+				[*] 请使用微信扫描二维码以登录 ... 
+
+2019-11-07 12:04:31.843 [Thread-7] WARN  io.github.biezhi.wechat.api.WechatApi -
+				[登陆超时] 
+
+2019-11-07 12:04:32.353 [Thread-7] INFO  io.github.biezhi.wechat.api.WechatClient -
+				[*] 请使用微信扫描二维码以登录 ... 
+
+2019-11-07 12:04:38.557 [Thread-3] WARN  io.github.biezhi.wechat.api.WechatApi -
+				[登陆超时] 
+
+2019-11-07 12:04:39.566 [Thread-3] INFO  io.github.biezhi.wechat.api.WechatClient -
+				[*] 请使用微信扫描二维码以登录 ... 
+
+2019-11-07 12:04:57.547 [Thread-7] WARN  io.github.biezhi.wechat.api.WechatApi -
+				[登陆超时] 
+
+2019-11-07 12:04:58.056 [Thread-7] INFO  io.github.biezhi.wechat.api.WechatClient -
+				[*] 请使用微信扫描二维码以登录 ... 
+
+2019-11-07 12:05:05.070 [Thread-3] WARN  io.github.biezhi.wechat.api.WechatApi -
+				[登陆超时] 
+
+2019-11-07 12:05:05.580 [Thread-3] INFO  io.github.biezhi.wechat.api.WechatClient -
+				[*] 请使用微信扫描二维码以登录 ... 
+
+2019-11-07 12:05:23.244 [Thread-7] WARN  io.github.biezhi.wechat.api.WechatApi -
+				[登陆超时] 
+
+2019-11-07 12:05:23.748 [Thread-7] INFO  io.github.biezhi.wechat.api.WechatClient -
+				[*] 请使用微信扫描二维码以登录 ... 
+
+2019-11-07 12:05:30.777 [Thread-3] WARN  io.github.biezhi.wechat.api.WechatApi -
+				[登陆超时] 
+
+2019-11-07 12:05:31.287 [Thread-3] INFO  io.github.biezhi.wechat.api.WechatClient -
+				[*] 请使用微信扫描二维码以登录 ... 
+
+2019-11-07 12:05:48.922 [Thread-7] WARN  io.github.biezhi.wechat.api.WechatApi -
+				[登陆超时] 
+
+2019-11-07 12:05:49.432 [Thread-7] INFO  io.github.biezhi.wechat.api.WechatClient -
+				[*] 请使用微信扫描二维码以登录 ... 
+
+2019-11-07 12:05:56.480 [Thread-3] WARN  io.github.biezhi.wechat.api.WechatApi -
+				[登陆超时] 
+
+2019-11-07 12:05:56.990 [Thread-3] INFO  io.github.biezhi.wechat.api.WechatClient -
+				[*] 请使用微信扫描二维码以登录 ... 
+
+2019-11-07 12:06:14.609 [Thread-7] WARN  io.github.biezhi.wechat.api.WechatApi -
+				[登陆超时] 
+
+2019-11-07 12:06:22.205 [Thread-3] WARN  io.github.biezhi.wechat.api.WechatApi -
+				[登陆超时] 
+
+2019-11-07 12:06:22.715 [Thread-3] INFO  io.github.biezhi.wechat.api.WechatClient -
+				[*] 请使用微信扫描二维码以登录 ... 
+
+2019-11-07 12:06:47.907 [Thread-3] WARN  io.github.biezhi.wechat.api.WechatApi -
+				[登陆超时] 
+
