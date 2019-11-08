@@ -6,6 +6,7 @@ spring:
     password: 123456
     type: com.mchange.v2.c3p0.ComboPooledDataSource
 mybatis:
+
   type-aliases-package: com.qf.pojo
   configuration:
     aggressive-lazy-loading: false
