@@ -80,6 +80,29 @@ public class UserController {
         model.addAttribute("user",user);
         return "update";
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     @RequestMapping("updateUser")
     public String updateUser(User user){
         int i = userService.updateUser(user);
